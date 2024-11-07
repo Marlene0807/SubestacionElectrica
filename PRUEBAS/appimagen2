@@ -1,0 +1,110 @@
+// Obtener el elemento canvas y el contexto de dibujo
+var canvas = document.getElementById('miCanvas');
+var ctx = canvas.getContext('2d');
+
+// Lista para almacenar las imágenes duplicadas
+var imagenesDuplicadas = [];
+var arrastrando = false;
+var imagenSeleccionada = null;
+var offsetX, offsetY;
+
+// Imagen original
+var imagenOriginal = new Image();
+imagenOriginal.src = 'TransformadorSuida.png'; // Cambia esta ruta a la de tu imagen
+
+imagenOriginal.onload = function() {
+    ctx.drawImage(imagenOriginal, 100, 100, 50, 50);
+    imagenOriginalObj = { x: 100, y: 100, width: 50, height: 50, img: imagenOriginal };
+};
+
+// Función para dibujar una imagen
+function dibujarImagen(imagenObj) {
+    ctx.drawImage(imagenObj.img, imagenObj.x, imagenObj.y, imagenObj.width, imagenObj.height);
+}
+
+// Función para detectar si el clic está dentro de una imagen
+function estaDentroDeLaImagen(x, y, imagenObj) {
+    return x > imagenObj.x && x < imagenObj.x + imagenObj.width &&
+           y > imagenObj.y && y < imagenObj.y + imagenObj.height;
+}
+
+// Evento de clic en el canvas
+canvas.addEventListener('mousedown', function(event) {
+    var rect = canvas.getBoundingClientRect();
+    var x = event.clientX - rect.left;
+    var y = event.clientY - rect.top;
+
+    // Verificar si el clic está dentro de alguna imagen duplicada
+    for (var i = 0; i < imagenesDuplicadas.length; i++) {
+        if (estaDentroDeLaImagen(x, y, imagenesDuplicadas[i])) {
+            // Iniciar el arrastre de la imagen duplicada seleccionada
+            arrastrando = true;
+            imagenSeleccionada = imagenesDuplicadas[i];
+            offsetX = x - imagenSeleccionada.x;
+            offsetY = y - imagenSeleccionada.y;
+            return;
+        }
+    }
+});
+
+// Evento de movimiento del ratón en el canvas
+canvas.addEventListener('mousemove', function(event) {
+    if (arrastrando && imagenSeleccionada) {
+        var rect = canvas.getBoundingClientRect();
+        var x = event.clientX - rect.left;
+        var y = event.clientY - rect.top;
+
+        // Mover la imagen duplicada seleccionada
+        imagenSeleccionada.x = x - offsetX;
+        imagenSeleccionada.y = y - offsetY;
+        dibujarTodasLasImagenes();
+    }
+});
+
+// Evento de liberación del ratón en el canvas
+canvas.addEventListener('mouseup', function(event) {
+    arrastrando = false;
+    imagenSeleccionada = null;
+});
+
+// Evento de doble clic en el canvas para duplicar la imagen original
+canvas.addEventListener('dblclick', function(event) {
+    var rect = canvas.getBoundingClientRect();
+    var x = event.clientX - rect.left;
+    var y = event.clientY - rect.top;
+
+    // Verificar si el doble clic está dentro de la imagen original
+    if (estaDentroDeLaImagen(x, y, imagenOriginalObj)) {
+        // Duplicar la imagen original
+        var nuevaImagen = {
+            x: imagenOriginalObj.x + 60,
+            y: imagenOriginalObj.y + 60,
+            width: imagenOriginalObj.width,
+            height: imagenOriginalObj.height,
+            img: imagenOriginal
+        };
+        imagenesDuplicadas.push(nuevaImagen);
+        dibujarTodasLasImagenes();
+    }
+});
+
+// Función para dibujar todas las imágenes
+function dibujarTodasLasImagenes() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    dibujarImagen(imagenOriginalObj);
+    for (var i = 0; i < imagenesDuplicadas.length; i++) {
+        dibujarImagen(imagenesDuplicadas[i]);
+    }
+}
+
+// Función para eliminar todas las imágenes duplicadas
+function eliminarDuplicados() {
+    imagenesDuplicadas = [];
+    dibujarTodasLasImagenes();
+}
+
+// Añadir el evento al botón para eliminar duplicados
+document.getElementById('eliminarDuplicados').addEventListener('click', eliminarDuplicados);
+
+// Dibujar la imagen original
+imagenOriginal.onload();

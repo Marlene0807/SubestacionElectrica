@@ -1,0 +1,73 @@
+/* dibujos figuras */
+
+body{
+    background-color: lightblue;
+    color: darkblue;
+}
+/* contenedor principal */
+.subestacion{
+    display:flex;
+    gap: 50px;
+    padding: 20px;
+    background-color: #0e0d0d;
+}
+
+/* Transformador */
+.transformador{
+    width: 80px;
+    height: 120px;
+    background-color: #888;
+    border: 3px solid #333;
+    border-radius: 5px;
+    position: relative;
+}
+.transformador::before{
+    content: '';
+    width: 20px;
+    height: 10px;
+    background-color: #333;
+    position: absolute;
+    top: -10px;
+    left: 30px;
+}
+.transformador::after{
+    content: '';
+    width: 20px;
+    height: 10px;
+    background-color: #333;
+    position: absolute;
+    bottom: -10px;
+    left: 30px;
+}
+
+/* Cuchilla */
+.cuchilla{
+    width: 100px;
+    height: 10px;
+    background-color: #333;
+    position: relative;
+}
+.cuchilla::before{
+    content: '';
+    width: 10px;
+    height: 30px;
+    background-color: #333;
+    position: absolute;
+    top: -10px;
+    left: 0;
+}
+.cuchilla::after{
+    content: '';
+    width: 10px;
+    height: 30px;
+    background-color: #333;
+    position: absolute;
+    top: -10px;
+    right: 0;
+}
+.cuchilla-linea{
+    width: 80px;
+    height: 5px;
+    background-color: #666;
+    margin-top: 5px;
+}

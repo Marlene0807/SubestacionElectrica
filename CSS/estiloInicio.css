@@ -1,0 +1,179 @@
+/* Reset de márgenes, rellenos y box-sizing para todos los elementos */
+* {
+    margin: 0;
+    /* Elimina el margen predeterminado de todos los elementos */
+    padding: 0;
+    /* Elimina el relleno predeterminado de todos los elementos */
+    box-sizing: border-box;
+    /* Incluye el relleno y los bordes en el tamaño total del elemento */
+    /*font-family: ;*/
+    /* Comentado: para definir una familia de fuentes más tarde */
+}
+
+/* Alineación y estilo del cuerpo de la página */
+body {
+    display: flex;
+    /* Utiliza flexbox para el contenedor del body */
+    justify-content: center;
+    /* Centra el contenido horizontalmente */
+    align-content: center;
+    /* Centra el contenido verticalmente */
+    min-height: 100vh;
+    /* Establece una altura mínima de 100% del viewport */
+    background: url(/Imagenes/bodyInicio.jpeg);
+    /* Establece una imagen de fondo */
+    background-size: cover;
+    /* Asegura que la imagen de fondo cubra todo el viewport */
+    background-position: center;
+    /* Centra la imagen de fondo */
+}
+
+/* Estilo del contenedor del formulario de inicio de sesión */
+.wrapper {
+    width: 420px;
+    /* Ancho fijo del contenedor */
+    background: rgba(9, 9, 97, 0.856);
+    /* Color de fondo con opacidad */
+    color: white;
+    /* Color del texto */
+    border-radius: 10px;
+    /* Bordes redondeados */
+    padding: 30px 40px;
+    /* Relleno interno */
+}
+
+/* Estilo del encabezado dentro del contenedor */
+.wrapper h1 {
+    font-size: 36px;
+    /* Tamaño de fuente grande */
+    text-align: center;
+    /* Texto centrado */
+}
+
+/* Estilo de los contenedores de los campos de entrada */
+.wrapper .input-box {
+    width: 100%;
+    /* Ancho completo del contenedor */
+    height: 50px;
+    /* Altura fija del contenedor */
+    margin: 30px 0;
+    /* Margen vertical */
+}
+
+/* Estilo de los campos de entrada */
+.input-box input {
+    width: 100%;
+    /* Ancho completo del campo */
+    height: 100%;
+    /* Altura completa del campo */
+    background: transparent;
+    /* Fondo transparente */
+    border: solid;
+    /* Borde sólido */
+    outline: none;
+    /* Sin contorno al enfocar */
+    border: 2px solid rgb(5, 0, 32);
+    /* Borde de 2px de color */
+    border-radius: 40px;
+    /* Bordes redondeados */
+    font-size: 16px;
+    /* Tamaño de la fuente */
+    color: aliceblue;
+    /* Color del texto */
+    padding: 20px 45px 20px 20px;
+    /* Relleno interno */
+}
+
+/* Estilo del texto placeholder en los campos de entrada */
+.input-box input::placeholder {
+    color: aliceblue;
+    /* Color del texto placeholder */
+}
+
+/* Posicionamiento y estilo del ícono dentro del campo de entrada */
+.input-box i {
+    position: absolute;
+    /* Posicionamiento absoluto */
+    right: 20px;
+    /* Alineación a la derecha */
+    top: 50%;
+    /* Centración vertical */
+    transform: translateY(-50%);
+    /* Ajuste para centrar exactamente */
+    font-size: 20px;
+    /* Tamaño de la fuente del ícono */
+}
+
+/* Estilo del input dentro de las etiquetas de recordar contraseña */
+.remember-forgot label input {
+    accent-color: white;
+    /* Color del acento (checkbox) */
+    margin-right: 3px;
+    /* Margen a la derecha */
+}
+
+/* Estilo de los enlaces dentro de recordar contraseña */
+.remember-forgot a {
+    color: aliceblue;
+    /* Color del texto */
+    text-decoration: none;
+    /* Sin subrayado */
+}
+
+/* Estilo de los enlaces al pasar el cursor */
+.remember-forgot a:hover {
+    text-decoration: underline;
+    /* Subrayado al pasar el cursor */
+}
+
+/* Estilo del botón de envío del formulario */
+.wrapper .btn {
+    width: 100%;
+    /* Ancho completo del botón */
+    height: 45px;
+    /* Altura fija del botón */
+    background: white;
+    /* Color de fondo blanco */
+    border: none;
+    /* Sin borde */
+    outline: none;
+    /* Sin contorno al enfocar */
+    border-radius: 40px;
+    /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.123);
+    /* Sombra del botón */
+    cursor: pointer;
+    /* Cursor de puntero */
+    font-size: 16px;
+    /* Tamaño de la fuente */
+    color: gray;
+    /* Color del texto */
+    font-weight: 600;
+    /* Peso de la fuente */
+}
+
+/* Estilo del contenedor del enlace de registro */
+.wrapper .register-link {
+    font-size: 14.5px;
+    /* Tamaño de la fuente */
+    text-align: center;
+    /* Texto centrado */
+    margin-top: 20px;
+    /* Margen superior */
+}
+
+/* Estilo de los enlaces de registro */
+.register-link p a {
+    color: white;
+    /* Color del texto */
+    text-decoration: none;
+    /* Sin subrayado */
+    font-weight: 600;
+    /* Peso de la fuente */
+}
+
+/* Estilo de los enlaces de registro al pasar el cursor */
+.register-link p a:hover {
+    text-decoration: underline;
+    /* Subrayado al pasar el cursor */
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <title>SIMULADOR</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="CSS/estilosPlantillaNueva.css">
+</head>
+
+<body>
+  <header>
+    <div class="back">
+      <div class="menu container">
+        <h1>Simulador Subestacion Electrica</h1>
+        <nav class="navbar">
+          <ul>
+            <li><a href="Bienvenida.html">Inicio</a></li>
+            <li><a href="Manual.html">Manual</a></li>
+            <li><a href="Contacto.html">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="lienzo-elementos">
+      <h2>Lienzo Elementos</h2>
+      <div class="imagenes-container">
+        <!-- Agrega aquí tus imágenes -->
+        <img src="Imagenes/icono imagen.png" class="caja" alt="">
+        <img src="Imagenes/icono imagen.png" class="caja" alt="">
+        <img src="Imagenes/icono imagen.png" class="caja" alt="">
+        <img src="Imagenes/icono imagen.png" class="caja" alt="">
+        <img src="Imagenes/icono imagen.png" class="caja" alt="">
+        <img src="Imagenes/icono imagen.png" class="caja" alt="">
+      </div>
+    </section>
+
+    <section class="main-container">
+      <div class="lienzo-simular">
+        <h2>Lienzo Simular</h2>
+        <canvas id="simulador-canvas" width="1000" height="500" class="cuadro-grande"></canvas>
+      </div>
+
+      <div class="object-list">
+        <h2>Lista de Objetos</h2>
+        <select id="object-dropdown">
+          <option value="" disabled selected>Seleccionar objeto</option>
+          <!-- Las opciones se añadirán dinámicamente aquí -->
+        </select>
+        <button id="delete-button">Eliminar Seleccionado</button>
+        <button id="delete-all-button">Eliminar Todos</button>
+        <select id="save-dropdown">
+          <option value="" disabled selected>Seleccionar guardado</option>
+        </select>
+        <button id="save-button">Guardar Estado</button>
+        <button id="load-button">Cargar Estado</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Simulador de Subestacion Electrica. Todos los derechos reservados al Instituto Politecnico
+        Nacional.</p>
+    </div>
+  </footer>
+
+  <script src="JavaScript/lienzoPlantillaNueva.js"></script>
+  <script src="JavaScript/AletarSalida.js"></script>
+</body>
+
+</html>

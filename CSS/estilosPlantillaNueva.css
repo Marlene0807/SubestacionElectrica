@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+}
+
+header {
+    background: #0052afde;
+    color: #ffffff;
+    padding: 10px 0;
+}
+
+header .container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px 0;
+}
+
+.lienzo-elementos {
+    border: 1px solid black;
+    padding: 10px;
+    background-color: #fff;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    /* Permite desplazamiento horizontal si las imágenes son más anchas que el contenedor */
+}
+
+.imagenes-container {
+    display: flex;
+    gap: 10px;
+    /* Espacio entre imágenes */
+}
+
+.imagenes-container img {
+    width: 80px;
+    /* Tamaño reducido de las imágenes */
+    height: 80px;
+}
+
+.lienzo-simular {
+    border: none;
+    position: relative;
+}
+
+.cuadro-grande {
+    width: 1000px;
+    height: 500px;
+    border: 1px solid black;
+    position: relative;
+    background-color: #f4f4f4;
+}
+
+.main-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+.object-list {
+    margin-left: 20px;
+    width: 200px;
+}
+
+select {
+    width: 100%;
+    padding: 5px;
+}
+
+option.highlighted {
+    background-color: yellow;
+}
+
+button {
+    margin-top: 10px;
+    width: 100%;
+    padding: 5px;
+}

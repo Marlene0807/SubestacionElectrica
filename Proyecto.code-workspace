@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../../../tt/Proyecto"
+		},
+		{
+			"path": "../../../tt/ProyectoSemiComentado"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Proyecto"
+	}
+}

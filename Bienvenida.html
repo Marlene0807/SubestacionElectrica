@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Declaración del tipo de documento y lenguaje de la página -->
+<head>
+  <!-- Metadatos del documento -->
+  <meta charset="UTF-8">
+   <!-- Establece la codificación de caracteres del documento como UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Configura la vista para el diseño responsivo -->
+  <title>Simulador Subestacion Electrica</title>
+   <!-- Título de la página -->
+  <link rel="stylesheet" href="CSS/estilosBienvenida.css">
+  <!-- Bootstrap CSS para un diseño responsivo -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+  <!-- Cuerpo del documento -->
+  <header>
+    <!-- Cuerpo del documento -->
+    <div class="container">
+      <h1>Simulador de una Subestacion Electrica</h1>
+      <nav>
+        <ul>
+          <li><a href="Manual.html">Manual</a></li> <!--Enlace al manual-->
+          <li><a href="Plantillas.html">Simulación</a></li><!--Enlace a la simulación-->
+          <li><a href="Contacto.html">Contacto</a></li><!--Enlace al contacto-->
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home">
+      <div class="container">
+        <h2>Bienvenido al inicio de la página</h2>
+
+        <!-- Carrusel de Imágenes -->
+        <div id="carouselExampleIndicators" class="carousel slide shadow-lg rounded" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner text-center">
+            <div class="carousel-item active">
+              <img src="ruta-de-la-imagen-1.jpg" class="d-block mx-auto" alt="Imagen 1">
+            </div>
+            <div class="carousel-item">
+              <img src="ruta-de-la-imagen-2.jpg" class="d-block mx-auto" alt="Imagen 2">
+            </div>
+            <div class="carousel-item">
+              <img src="ruta-de-la-imagen-3.jpg" class="d-block mx-auto" alt="Imagen 3">
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <img src="ruta-de-la-flecha-izquierda.png" alt="Anterior" class="arrow-icon">
+            <span class="sr-only">Anterior</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <img src="ruta-de-la-flecha-derecha.png" alt="Siguiente" class="arrow-icon">
+            <span class="sr-only">Siguiente</span>
+          </a>
+        </div>
+        <!-- Fin del Carrusel de Imágenes -->
+
+        <p>Esta página ha sido desarrollada por alumnos de la ESCOM, para ayudar a los alumnos que estudias las Subestaciones Electricas.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2>Contacto</h2>
+        <p>Para dudas, reclamos o aclaraciones que no puedas consultar en esta pagina no dudes en enviar un correo a los administradores del sitio o ponerte en contacto con nosotros y con gusto te atenderemos.</p>
+      
+        <!-- Datos de contacto -->
+        <p><strong>Correo Electrónico:</strong> ttsubestacion.electrica@gmail.com</p>
+        <p><strong>Número de Teléfono:</strong> +52 55 3301 2599</p>
+        
+        <!-- Formulario de contacto -->
+        <form id="contact-form">
+          <div class="input-box">
+            <label for="contact-email">Correo:</label>
+            <input type="email" id="contact-email" placeholder="Tu correo" required>
+          </div>
+          <div class="input-box">
+            <label for="contact-phone">Teléfono:</label>
+            <input type="tel" id="contact-phone" placeholder="Tu número" required>
+          </div>
+          <div class="input-box">
+            <label for="contact-message">Mensaje:</label>
+            <textarea id="contact-message" placeholder="Tu mensaje" required></textarea>
+          </div>
+          <button type="submit" class="btn">Enviar Mensaje</button>
+        </form>
+        
+
+        <!-- Mensaje de confirmación -->
+          <div id="confirmation-message" style="display:none; margin-top: 20px; padding: 10px; background-color: #e7f3fe; border: 1px solid #b3d7ff; color: #31708f;">
+            Se ha enviado exitosamente, los administradores del sitio se pondrán en contacto contigo pronto. Gracias por tus comentarios y/o sugerencias.
+          </div>
+        
+          <script>
+            // Manejar el envío del formulario
+              document.getElementById('contact-form').addEventListener('submit', function(event) {
+              event.preventDefault(); // Evitar el envío tradicional del formulario
+                
+            // Mostrar el mensaje de confirmación
+              document.getElementById('confirmation-message').style.display = 'block';
+                
+            // Limpiar el formulario después de enviarlo
+              this.reset();
+            });
+          </script>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Simulador de Subestacion Electrica. Todos los derechos reservados al Instituto Politecnico
+        Nacional.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
