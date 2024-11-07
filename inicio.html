@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Subestacion Electrica</title>
+    <link rel="stylesheet" href="CSS/estiloInicio.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Formulario de inicio de sesión -->
+        <form id="login-form">
+            <h1>Inicio de Sesion</h1>
+            <div class="input-box">
+                <input type="text" id="login-email" placeholder="Correo" required>
+            </div>
+            <div class="input-box">
+                <input type="password" id="login-password" placeholder="Contraseña" required>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <div class="register-link">
+                <p>¿No tienes una cuenta? <a href="#" id="show-register">Registrar</a></p>
+            </div>
+        </form>
+
+        <!-- Formulario de registro -->
+        <form id="register-form" style="display: none;">
+            <h1>Registro</h1>
+            <div class="input-box">
+                <input type="text" id="register-email" placeholder="Correo" required>
+            </div>
+            <div class="input-box">
+                <input type="password" id="register-password" placeholder="Contraseña" required>
+            </div>
+            <button type="submit" class="btn">Registrar</button>
+            <div class="register-link">
+                <p>¿Ya tienes una cuenta? <a href="#" id="show-login">Iniciar Sesión</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Recuperar usuarios del almacenamiento local o inicializar como un array vacío
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+
+        // Manejar el evento de envío del formulario de inicio de sesión
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar el envío tradicional del formulario
+            const email = document.getElementById('login-email').value; // Obtener el correo ingresado
+            const password = document.getElementById('login-password').value; // Obtener la contraseña ingresada
+
+            // Buscar el usuario en el array de usuarios
+            const user = users.find(user => user.email === email);
+
+            // Verificar si el usuario existe
+            if (user) {
+                // Si el usuario existe, verificar la contraseña
+                if (user.password === password) {
+                    alert('Inicio de sesión exitoso'); // Mensaje de éxito
+                    window.location.href = 'Bienvenida.html'; // Redirigir a la página de bienvenida
+                } else {
+                    alert('Contraseña incorrecta'); // Mensaje de error específico para contraseña
+                }
+            } else {
+                alert('Correo no registrado'); // Mensaje de error si el correo no está registrado
+            }
+        });
+
+        // Manejar el evento de envío del formulario de registro
+        document.getElementById('register-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar el envío tradicional del formulario
+            const email = document.getElementById('register-email').value; // Obtener el correo ingresado
+            const password = document.getElementById('register-password').value; // Obtener la contraseña ingresada
+
+            // Verificar que no haya más de 3 usuarios registrados
+            if (users.length >= 3) {
+                alert('Máximo de usuarios registrados alcanzado'); // Mensaje de límite alcanzado
+                return; // Salir de la función
+            }
+
+            // Verificar si el correo ya está registrado
+            if (users.some(user => user.email === email)) {
+                alert('Este correo ya está registrado'); // Mensaje de error
+                return; // Salir de la función
+            }
+
+            // Agregar el nuevo usuario al array de usuarios
+            users.push({ email, password });
+            localStorage.setItem('users', JSON.stringify(users)); // Guardar el array de usuarios en el almacenamiento local
+            alert('Registro exitoso. Puedes iniciar sesión ahora.'); // Mensaje de éxito
+            document.getElementById('register-form').style.display = 'none'; // Ocultar el formulario de registro
+            document.getElementById('login-form').style.display = 'block'; // Mostrar el formulario de inicio de sesión
+        });
+
+        // Mostrar el formulario de registro al hacer clic en "Registrar"
+        document.getElementById('show-register').addEventListener('click', function() {
+            document.getElementById('login-form').style.display = 'none'; // Ocultar el formulario de inicio de sesión
+            document.getElementById('register-form').style.display = 'block'; // Mostrar el formulario de registro
+        });
+
+        // Mostrar el formulario de inicio de sesión al hacer clic en "Iniciar Sesión"
+        document.getElementById('show-login').addEventListener('click', function() {
+            document.getElementById('register-form').style.display = 'none'; // Ocultar el formulario de registro
+            document.getElementById('login-form').style.display = 'block'; // Mostrar el formulario de inicio de sesión
+        });
+    </script>
+</body>
+</html>
